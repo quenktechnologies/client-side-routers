@@ -1,4 +1,4 @@
-# Client Side Routers
+# Frontend Routers
 
 Routing implementations for single page web apps.
 

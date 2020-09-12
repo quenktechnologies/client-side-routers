@@ -1,5 +1,5 @@
 {
-  "name": "@quenk/client-side-routers",
+  "name": "@quenk/frontend-routers",
   "version": "1.0.0",
   "description": "Routing implementations for single page web apps.",
   "main": "lib/index.js",
