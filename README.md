@@ -5,7 +5,7 @@ Routing implementations for single page web apps.
 ## Installation
 
 ```sh
-npm install --save-dev @quenk/client-side-routers
+npm install --save-dev @quenk/frontend-routers
 ```
 
 ## License
