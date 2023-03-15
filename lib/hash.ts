@@ -148,7 +148,7 @@ export abstract class AbstractHashRouter<R extends Request>
             mware
                 .reduce((p, c) => p.chain(c), ft)
                 .chain(handler)
-                .catch(e => this.onError(e))
+                .trap(e => this.onError(e))
                 .fork(console.error, noop);
 
         } else {

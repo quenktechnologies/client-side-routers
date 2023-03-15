@@ -2,15 +2,15 @@ import { Future } from '@quenk/noni/lib/control/monad/future';
 /**
  * Route is a string used as an identifier for application state.
  */
-export declare type Route = string;
+export type Route = string;
 /**
  * Filter types transform <R> values before they are passed to handlers.
  */
-export declare type Filter<R> = (req: R) => Future<R>;
+export type Filter<R> = (req: R) => Future<R>;
 /**
  * Handler is the action taken to terminate a request.
  */
-export declare type Handler<R> = (r: R) => Future<void>;
+export type Handler<R> = (r: R) => Future<void>;
 /**
  * Router is an interface for changing application state based on user requests.
  *

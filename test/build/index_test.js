@@ -18,13 +18,13 @@ describe('router', function () {
             router
                 .add('/search/:collection', function (req) {
                 called = true;
-                assert_1.assert(req.params.collection).equal('samples');
-                return future_1.pure(undefined);
+                (0, assert_1.assert)(req.params.collection).equal('samples');
+                return (0, future_1.pure)(undefined);
             })
                 .start();
             window.location.hash = '#/search/samples';
             setTimeout(function () {
-                assert_1.assert(called).equal(true);
+                (0, assert_1.assert)(called).equal(true);
                 cb();
             }, 200);
         });
@@ -34,12 +34,12 @@ describe('router', function () {
             router
                 .add('/', function () {
                 called = true;
-                return future_1.pure(undefined);
+                return (0, future_1.pure)(undefined);
             })
                 .start();
             window.location.hash = '#';
             setTimeout(function () {
-                assert_1.assert(called).equal(true);
+                (0, assert_1.assert)(called).equal(true);
                 cb();
             }, 200);
         });
@@ -48,16 +48,16 @@ describe('router', function () {
             router = new hash_1.HashRouter(window, {});
             router
                 .add('/spreadsheet/locations/:worksheet', function (req) {
-                assert_1.assert(req.query).not.undefined();
-                assert_1.assert(req.query.b).equal('2');
-                assert_1.assert(req.query.c).equal('3');
+                (0, assert_1.assert)(req.query).not.undefined();
+                (0, assert_1.assert)(req.query.b).equal('2');
+                (0, assert_1.assert)(req.query.c).equal('3');
                 called = true;
-                return future_1.pure(undefined);
+                return (0, future_1.pure)(undefined);
             })
                 .start();
             window.location.hash = '#/spreadsheet/locations/1?a=1&b=2&c=3';
             setTimeout(function () {
-                assert_1.assert(called).true();
+                (0, assert_1.assert)(called).true();
                 cb();
             }, 200);
         });
@@ -67,18 +67,18 @@ describe('router', function () {
             router
                 .add('/', function () {
                 called = true;
-                return future_1.pure(undefined);
+                return (0, future_1.pure)(undefined);
             })
                 .start();
             window.location.hash = '';
             setTimeout(function () {
-                assert_1.assert(called).true();
+                (0, assert_1.assert)(called).true();
                 cb();
             }, 200);
         });
         it('should execute middleware', function (cb) {
             var count = 0;
-            var mware = function (req) { count = count + 1; return future_1.pure(req); };
+            var mware = function (req) { count = count + 1; return (0, future_1.pure)(req); };
             router = new hash_1.HashRouter(window, {});
             router
                 .use('/search', mware)
@@ -86,24 +86,24 @@ describe('router', function () {
                 .use('/search', mware)
                 .add('/search', function () {
                 count = count + 1;
-                return future_1.pure(undefined);
+                return (0, future_1.pure)(undefined);
             })
                 .start();
             window.location.hash = 'search';
             setTimeout(function () {
-                assert_1.assert(count).equal(4);
+                (0, assert_1.assert)(count).equal(4);
                 cb();
             }, 1000);
         });
         it('should invoke the 404 if not present', function (cb) {
             var hadNotFound = false;
-            var onErr = function () { return future_1.pure(function_1.noop()); };
-            var onNotFound = function () { hadNotFound = true; return future_1.pure(function_1.noop()); };
+            var onErr = function () { return (0, future_1.pure)((0, function_1.noop)()); };
+            var onNotFound = function () { hadNotFound = true; return (0, future_1.pure)((0, function_1.noop)()); };
             router = new hash_1.HashRouter(window, {}, onErr, onNotFound);
             router.start();
             window.location.hash = 'waldo';
             setTimeout(function () {
-                assert_1.assert(hadNotFound).true();
+                (0, assert_1.assert)(hadNotFound).true();
                 cb();
             }, 1000);
         });

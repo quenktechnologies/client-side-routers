@@ -5,31 +5,31 @@ import { Future } from '@quenk/noni/lib/control/monad/future';
 /**
  * Path type alias.
  */
-export declare type Path = string;
+export type Path = string;
 /**
  * Query type alias.
  */
-export declare type Query = JObject;
+export type Query = JObject;
 /**
  * Params
  */
-export declare type Params = JObject;
+export type Params = JObject;
 /**
  * Filter type.
  */
-export declare type Filter<R extends Request> = router.Filter<R>;
+export type Filter<R extends Request> = router.Filter<R>;
 /**
  * Handler type.
  */
-export declare type Handler<R extends Request> = router.Handler<R>;
+export type Handler<R extends Request> = router.Handler<R>;
 /**
  * OnError type.
  */
-export declare type OnError = (e: Error) => Future<void>;
+export type OnError = (e: Error) => Future<void>;
 /**
  * OnNotFound type.
  */
-export declare type OnNotFound = (path: Path) => Future<void>;
+export type OnNotFound = (path: Path) => Future<void>;
 /**
  * Routes table.
  */
